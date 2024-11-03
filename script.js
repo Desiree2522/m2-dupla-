@@ -18,11 +18,12 @@ class Pet {
         this.idade = idade;
     }
 }
+
 function renderPetList() {
     petList.innerHTML = ""; // Limpa a lista
     pets.forEach((pet, index) => {
         const li = document.createElement("li");
-        newFunction(li, pet); ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+        li.innerText = `Dono: ${pet.nomeDono}, Pet: ${pet.nome}, Raça: ${pet.raca}, Idade: ${pet.idade} anos`;
 
         const editButton = document.createElement("button");
         editButton.innerText = "Editar";
@@ -39,22 +40,12 @@ function renderPetList() {
         petList.appendChild(li);
     });
 
-    // Mostra a seção de saida se tiver pets
-    if (pets.length > 0) {
-        saidaSection.classList.remove("hidden");
-    } else {
-        saidaSection.classList.add("hidden");
-    }
-}
-
-
-
-function newFunction(li, pet) {
-    li.innerText = Dono; $; { pet.nomeDono; } $; { pet.nome; } $; { pet.raca; } $; { pet.idade; } anos;
+    // Mostra a seção de saída se houver pets
+    saidaSection.classList.toggle("hidden", pets.length === 0);
 }
 
 function addPet(event) {
-    event.preventDefault(); // Evita o enviar formulário
+    event.preventDefault(); // Evita o envio do formulário
     const nomeDono = nameDonoInput.value;
     const nome = namePetInput.value;
     const raca = racaInput.value;
@@ -63,11 +54,12 @@ function addPet(event) {
     if (currentIndex !== null) {
         // Edita pet existente
         pets[currentIndex] = new Pet(nomeDono, nome, raca, idade);
-        currentIndex = null;
+        currentIndex = null; // Reseta o índice
     } else {
         pets.push(new Pet(nomeDono, nome, raca, idade));
     }
-// Limpa os inputs
+
+    // Limpa os inputs
     nameDonoInput.value = "";
     namePetInput.value = "";
     racaInput.value = "";
@@ -75,7 +67,7 @@ function addPet(event) {
 
     renderPetList();
 
-    // lista de pets
+    // Lista de pets
     console.log("Lista de Pets:", pets);
 }
 
@@ -85,9 +77,9 @@ function editPet(index) {
     namePetInput.value = pet.nome;
     racaInput.value = pet.raca;
     idadeInput.value = pet.idade;
-    currentIndex = index; // pet sendo editado
+    currentIndex = index; // Marca o pet sendo editado
 
-    // pet sendo editado
+    // Pet sendo editado
     console.log("Editando Pet:", pet);
 }
 
@@ -96,7 +88,7 @@ function deletePet(index) {
     pets.splice(index, 1); // Remove o pet
     renderPetList();
 
-    //removido
+    // Removido
     console.log("Pet Removido:", removedPet);
     console.log("Lista Atualizada de Pets:", pets);
 }
