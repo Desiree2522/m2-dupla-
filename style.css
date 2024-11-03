@@ -17,14 +17,14 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
-        di
+       input {
       border: 5px;
-    
+    } */
   }
    
-  #info_dono { 
+  #info_dono {
     background-color: aqua;
-  } 
+  } */
   
   #formulario {
     display: flex;
