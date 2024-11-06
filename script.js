@@ -1,96 +1,77 @@
-// CAPTURA DOS ELEMENTOS PELA DOM
-const nameDonoInput = document.getElementById("nameDono");
-const namePetInput = document.getElementById("namePet");
-const racaInput = document.getElementById("raca");
-const idadeInput = document.getElementById("idadepet");
+const nameResponsavelInput = document.getElementById("nameResponsavel");
+const nameCriançaInput = document.getElementById("nameCriança");
+const sintomasInput = document.getElementById("sintomas");
+const idadeInput = document.getElementById("idadeCriança");
 const formulario = document.getElementById("formulario");
-const petList = document.getElementById("petList");
+const criançaList = document.getElementById("criançaList");
 const saidaSection = document.getElementById("saida");
 
-let pets = [];
-let currentIndex = null; // Para rastrear o índice do pet sendo editado
+let crianças = [];
+let currentIndex = null;
 
-class Pet {
-    constructor(nomeDono, nome, raca, idade) {
-        this.nomeDono = nomeDono;
-        this.nome = nome;
-        this.raca = raca;
+class Criança {
+    constructor(nomeResponsavel, nomeCriança, sintomas, idade) {
+        this.nomeResponsavel = nomeResponsavel;
+        this.nomeCriança = nomeCriança;
+        this.sintomas = sintomas;
         this.idade = idade;
     }
 }
 
-function renderPetList() {
-    petList.innerHTML = ""; // Limpa a lista
-    pets.forEach((pet, index) => {
+function renderCriançaList() {
+    criançaList.innerHTML = "";
+    crianças.forEach((criança, index) => {
         const li = document.createElement("li");
-        li.innerText = `Dono: ${pet.nomeDono}, Pet: ${pet.nome}, Raça: ${pet.raca}, Idade: ${pet.idade} anos`;
+        li.innerText = `Responsável: ${criança.nomeResponsavel}, Criança: ${criança.nomeCriança}, Sintomas: ${criança.sintomas}, Idade: ${criança.idade} anos`;
 
         const editButton = document.createElement("button");
         editButton.innerText = "Editar";
         editButton.className = "button edit-button";
-        editButton.onclick = () => editPet(index);
+        editButton.onclick = () => editCriança(index);
 
         const deleteButton = document.createElement("button");
         deleteButton.innerText = "Deletar";
         deleteButton.className = "button delete-button";
-        deleteButton.onclick = () => deletePet(index);
+        deleteButton.onclick = () => deleteCriança(index);
 
         li.appendChild(editButton);
         li.appendChild(deleteButton);
-        petList.appendChild(li);
+        criançaList.appendChild(li);
     });
 
-    // Mostra a seção de saída se houver pets
-    saidaSection.classList.toggle("hidden", pets.length === 0);
+    saidaSection.classList.toggle("hidden", crianças.length === 0);
 }
 
-function addPet(event) {
-    event.preventDefault(); // Evita o envio do formulário
-    const nomeDono = nameDonoInput.value;
-    const nome = namePetInput.value;
-    const raca = racaInput.value;
+function addcriança(event) {
+    event.preventDefault();
+    const nomeResponsavel = nameResponsavelInput.value;
+    const nomeCriança = nameCriançaInput.value;
+    const sintomas = sintomasInput.value;
     const idade = idadeInput.value;
 
     if (currentIndex !== null) {
-        // Edita pet existente
-        pets[currentIndex] = new Pet(nomeDono, nome, raca, idade);
-        currentIndex = null; // Reseta o índice
+        crianças[currentIndex] = new Criança(nomeResponsavel, nomeCriança, sintomas, idade);
+        currentIndex = null;
     } else {
-        pets.push(new Pet(nomeDono, nome, raca, idade));
+        crianças.push(new Criança(nomeResponsavel, nomeCriança, sintomas, idade));
     }
 
-    // Limpa os inputs
-    nameDonoInput.value = "";
-    namePetInput.value = "";
-    racaInput.value = "";
-    idadeInput.value = "";
-
-    renderPetList();
-
-    // Lista de pets
-    console.log("Lista de Pets:", pets);
+    formulario.reset();
+    renderCriançaList();
 }
 
-function editPet(index) {
-    const pet = pets[index];
-    nameDonoInput.value = pet.nomeDono;
-    namePetInput.value = pet.nome;
-    racaInput.value = pet.raca;
-    idadeInput.value = pet.idade;
-    currentIndex = index; // Marca o pet sendo editado
-
-    // Pet sendo editado
-    console.log("Editando Pet:", pet);
+function editCriança(index) {
+    const criança = crianças[index];
+    nameResponsavelInput.value = criança.nomeResponsavel;
+    nameCriançaInput.value = criança.nomeCriança;
+    sintomasInput.value = criança.sintomas;
+    idadeInput.value = criança.idade;
+    currentIndex = index;
 }
 
-function deletePet(index) {
-    const removedPet = pets[index]; // Guarda o pet removido
-    pets.splice(index, 1); // Remove o pet
-    renderPetList();
-
-    // Removido
-    console.log("Pet Removido:", removedPet);
-    console.log("Lista Atualizada de Pets:", pets);
+function deleteCriança(index) {
+    crianças.splice(index, 1);
+    renderCriançaList();
 }
 
-formulario.addEventListener("submit", addPet);
+formulario.addEventListener("submit", addcriança);

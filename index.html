@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro Pet</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Cadastro Consulta Pediatra</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-
 <body>
     <div class="container">
         <div class="form-image">
-            <img src="assets/img/giphy.gif" alt="Imagem animada de um pet">
+            <img src="img/imagem pediatria.jpg" alt="Imagem animada de pediatria">
         </div>
         <form class="form" id="formulario">
-            <h1>Formulário de Cadastro</h1>
+            <h1>Formulário de Pediatria</h1>
             <article id="info_pet">
-                <label for="nameDono">Nome do Dono</label>
-                <input id="nameDono" type="text" class="input-style" placeholder="Digite o nome do dono:" required>
+                <label for="nameResponsavel">Nome do Responsável</label>
+                <input id="nameResponsavel" type="text" class="input-style" placeholder="Digite o nome do Responsável:" required>
 
-                <label for="namePet">Nome do Pet</label>
-                <input id="namePet" type="text" class="input-style" placeholder="Digite o nome do pet:" required>
+                <label for="nameCriança">Nome da Criança</label>
+                <input id="nameCriança" type="text" class="input-style" placeholder="Digite o nome da Criança:" required>
 
-                <label for="raca">Raça do Pet</label>
-                <input id="raca" type="text" class="input-style" placeholder="Digite a raça do pet:" required>
+                <label for="sintomas">Sintomas da Criança</label>
+                <input id="sintomas" type="text" class="input-style" placeholder="Digite os sintomas da Criança:" required>
 
-                <label for="idadepet">Idade do Pet</label>
-                <input id="idadepet" type="number" class="input-style" placeholder="Digite a idade do pet:" required>
+                <label for="idadeCriança">Idade da Criança</label>
+                <input id="idadeCriança" type="number" class="input-style" placeholder="Digite a idade da Criança:" required>
             </article>
             <button type="submit" class="button submit-button">Cadastrar</button>
-
         </form>
     </div>
 
     <section id="saida" class="hidden">
-        <h2>Pets Cadastrados</h2>
-        <ul id="petList"></ul>
+        <h2>Crianças Cadastradas</h2>
+        <ul id="criançaList"></ul>
     </section>
-
-    <script src="script.js"></script>
+    <script src="/script.js"></script>
 </body>
-
 </html>

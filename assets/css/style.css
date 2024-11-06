@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
-/* Reset de estilos padrão */
+
 * {
   border: 0;
   margin: 0;
@@ -10,8 +10,8 @@
 }
 
 body {
-  background-color: #f9f9f9;
-  color: #333;
+  background-color: #f2c0ea;
+  color: #9f4f8e;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ body {
   width: 80%;
   height: 80vh;
   border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(44, 37, 44, 0.1);
   overflow: hidden;
 }
 
@@ -32,8 +32,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  background-color: #e7f5e1; /* Fundo para a imagem */
+  padding: 0%;
+  background-color: #f4bde6; 
 }
 
 .form-image img {
@@ -57,16 +57,16 @@ body {
   padding: 0.5rem;
   margin-bottom: 1rem;
   border: 1px solid #ccc;
-  border-radius: 20px; /* Bordas redondas */
+  border-radius: 30px; 
 }
 
 .button {
   color: white;
-  border: none; /* Tira borda padrão */
-  padding: 10px 15px; /* Distância interna */
+  border: none; 
+  padding: 10px 15px; 
   text-align: center;
   text-decoration: none;
-  display: inline-block; /* Usar padding */
+  display: inline-block; 
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -75,15 +75,15 @@ body {
 }
 
 .submit-button {
-  background-color: #4CAF50;
+  background-color: #3ba9b5;
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #28822d;
 }
 
 .edit-button {
-  background-color: #8BC34A;
+  background-color: #b2d18e;
 }
 
 .edit-button:hover {
@@ -91,7 +91,7 @@ body {
 }
 
 .delete-button {
-  background-color: #f44336;
+  background-color: #eca19b;
 }
 
 .delete-button:hover {
@@ -107,6 +107,6 @@ body {
 }
 
 #saida label {
-  display: block; /* Cada label ocupa uma linha */
-  margin-bottom: 10px; /* Espaço entre os labels */
-}
+  display: block; 
+  margin-bottom: 10px;
+ }    
